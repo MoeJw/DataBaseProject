@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="de.css" rel="stylesheet">
+</head>
+<body>
+                <nav class="navbar navbar-inverse ">
+                                <div class="container-fluid">
+                                        <ul class="nav navbar-nav navbar-left">
+                                                
+                                                <li><a href="index.html"><span class="glyphicon glyphicon-log-in"></span> تسجيل الخروج</a></li>
+                                              </ul>
+                                  <div class="navbar-header navbar-right">
+                                        <a class="navbar-brand" href="#">Baby<span style="color:#4CAF50; font-size: 20px;"><bold>Zone</bold></span></a>
+                                  </div>
+                                  <ul class="nav navbar-nav navbar-right" >
+                                        <li><a href="child-Acount.html" >الاطفال </a></li>
+                                    <li ><a href="expensess.html">المصروفات</a></li>
+                                    <li  class="active"><a href="events.html">الاحداث</a></li>
+                                    <li ><a href="employeesAcounts.html" >الموظفين</a></li>
+                                    
+                                  </ul>
+                                </div>
+                              </nav>
+<!-----------------------right bar-------------------------->
+              <div class="left-nav">
+                    <div class="block">
+                            <a href="#" onclick="show(1)">إضافة حدث</a>
+                            <span class="glyphicon glyphicon-plus" style="color:#4CAF50" aria-hidden="true"></span>
+                        </div>
+                <div class="block">
+                    <a href="#" onclick="show(2)" class="active">عرض جميع الاحداث </a>
+                </div>
+                
+              </div>
+<!---------------------------mid box----------------------------->
+            <div class="mid-box " id="mid-box">
+                  
+                    <div class="mid-container" id="mid-container">
+                            <div class="form" >
+                                    <div class="form-group row"      >
+                                          <div  class="col-xs-4 col-xs-push-6" >
+                                                    <input class="form-control" id="ex1" type="text" >
+                                          </div>
+                                          <div  class="col-xs-4 col-xs-push-6" > 
+                                                     <label for="ex1">الحدث</label>
+                                            </div>
+                                         
+                                    </div>
+                                     <div class="form-group row"      >
+                                          <div  class="col-xs-4 col-xs-push-6" >
+                                                    <input class="form-control" id="ex1" type="text" >
+                                          </div>
+                                          <div  class="col-xs-4 col-xs-push-6" > 
+                                                     <label for="ex1">الفئة المستهدفة </label>
+                                            </div>
+                                         
+                                    </div>
+                                    <div class="form-group row"      >
+                                            <div  class="col-xs-4 col-xs-push-6" >
+                                                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                                            </div>
+                                            <div  class="col-xs-4 col-xs-push-6" > 
+                                                       <label for="ex1">الملاحظات</label>
+                                              </div>
+                                           
+                                      </div>
+                                      <div class="form-group row"      >
+                                            <div  class="col-xs-4 col-xs-push-6" >
+                                                    <input class="form-control" id="ex1" type="text" >
+                                            </div>
+                                            <div  class="col-xs-4 col-xs-push-6" > 
+                                                       <label for="ex1">التاريخ</label>
+                                              </div>
+                                           
+                                      </div>
+                                      <div class="form-group row"      >
+                                            <div  class="col-xs-4 col-xs-push-8" >
+                                                   <a class="btn btn-success">إضافة</a>
+                                            </div>
+                                            
+                                           
+                                      </div>
+                            </div>
+                    </div>
+                    <div  id="table1">
+                            <h2 style="text-align: right ;margin-right: 50px; color:#777;">جميع المصروفات </h2>          
+                            <table class="table table-striped">
+                            <thead>
+                                <tr>
+                               
+                                
+                                <th style="color:#4CAF50;">الملاحظات</th>
+                                <th style="color:#4CAF50;"> الفئة المستهدفة</th>
+                                <th style="color:#4CAF50;">نوع الحدث</th>
+                                <th style="color:#4CAF50;">التاريخ</th>
+                                </tr>
+                            </thead>
+                            <tbody style="color:#777;">
+                                <tr>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>john@example.com</td>
+                                <td>john@example.com</td>
+                                </tr>
+                                
+                                <tr>
+                                <td>Mary</td>
+                                <td>Moe</td>
+                                <td>mary@example.com</td>
+                                <td>john@example.com</td>
+                                </tr>
+                                <tr>
+                                <td>July</td>
+                                <td>Dooley</td>
+                                <td>july@example.com</td>
+                                <td>john@example.com</td>   
+                                </tr>
+                                
+                            </tbody>
+                            </table>
+                        </div>
+                  
+                  <!------------------------------------------------->
+                    <!------------------------end of add------------------------------>
+            </div>
+            
+    <script>
+            var table=document.getElementById("table1");
+            table.style.display="none";
+           
+            table.display="block";
+            var show1=null;
+            var show2=null;
+        function show(value){
+            var myNode=document.getElementById("mid-box");
+          if(value==1){
+            while (myNode.firstChild) {
+        myNode.removeChild(myNode.firstChild);
+    
+            }
+              myNode.appendChild(show1);
+              
+          }
+          else{
+              
+          show1=document.getElementById("mid-container");
+            while (myNode.firstChild) {
+        myNode.removeChild(myNode.firstChild);
+    
+            }
+            table.style.display="block";
+            table.style.color="black";
+            myNode.appendChild(table);
+          }
+    
+        }
+        </script>
+
+                </body>
