@@ -21,33 +21,7 @@
 
         </style>
 </head>
-<?php
-function OpenCon()
-{
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass = "root";
-$db = "login";
 
-
-$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
-
-
-return $conn;
-}
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $conn = OpenCon();
-        $result=$conn->prepare("INSERT INTO employee values(?, ?, ?,?, ?, ?,?)  ");
-        $result->bind_param('sssiiss',
-        $fname,$mname,$lname,$id,$phoneNumber,
-        $bdate,$adress);
-        $a=$result->execute();
-        echo $a;
-     
-}       
-
-
-?>
 <body>
         <nav class="navbar navbar-inverse ">
                 <div class="container-fluid">
@@ -145,7 +119,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                             </div>
                                             
                                     </div>
-                                     <div style="margin-left:10px; "  class="col-xs-3 col-xs-push-2" >
+                                     <div style="margin-left:10px; "  class="col-xs-3 col-xs-push-1" >
                                         <label for="ex1">جنس الطفل</label>
                                       </div>
                               
@@ -153,49 +127,54 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                               
                               
                                      <div class="form-group row"  style="margin-left:100px;  text-align: right" >
-                                       <div style="margin-left:28px; "  class="col-xs-3 col-xs-push-8 " >
+                                       <div style="margin-left:28px; "  class="col-xs-3 col-xs-push-6 " >
                                           <label for="ex1">تاريخ الميلاد</label>
                                           <input class="form-control" id="ex1" type="text" name="Bdate">
                                           </div>
                                   </div>
                               
                                      <div class="form-group row"  style="margin-left:90px;  text-align: right;border-bottom:1px black" >
-                                       <div style="margin-left:10px; "  class="col-xs-2 col-xs-push-3"  >
+                                       <div style="margin-left:10px; "  class="col-xs-2 col-xs-push-1"  >
                                           <label for="ex1">مكان الميلاد </label>
                                           <input class="form-control" id="ex1" type="text" name="placeBirth">
                                           </div>
-                                           <div style="margin-left:10px; "  class="col-xs-3 col-xs-push-3 " >
+                                           <div style="margin-left:10px; "  class="col-xs-3 col-xs-push-1 " >
                                               <label for="ex1">المحافظة التي ولد بها</label>
                                               <input class="form-control" id="ex1" type="text" name="whereState">
                                               </div>
                               
-                                               <div style="margin-left:10px; "  class="col-xs-3  col-xs-push-3" >
+                                               <div style="margin-left:10px; "  class="col-xs-3  col-xs-push-1" >
                                                   <label for="ex1">المحافظة التي يقيم بها حاليا</label>
                                                   <input class="form-control" id="ex1" type="text" name="whereLive">
                                                   </div>
 
-                                                  <div style="margin-left:10px; "  class="col-xs-3 col-xs-pull-9" >   
-                                                        <label for="ex1">رقم الهوية</label>
-                                                        <input class="form-control" id="ex1" type="text" name="id">
-                                            
-                                                      </div>
+                                                  
                                   </div>
+                                  <div class="form-group row"  style="margin-left:90px;  text-align: right;border-bottom:1px black" >
+                                        <div style="margin-left:29px; "  class="col-xs-3 col-xs-push-6"  >   
+                                                <label for="ex1">رقم الهوية</label>
+                                                <input class="form-control" id="ex1" type="text" name="id">
+                                    
+                                              </div>
+                                
+                                
+                                </div>
                               
                                 
                                        <div class="form-group row"  style="margin-left:100px;  text-align: right" >
-                                         <div style="margin-left:10px; "  class="col-xs-2" >   
+                                         <div style="margin-left:10px; "  class="col-xs-2 col-xs-push-3" >   
                                             <label for="ex1">  صلة القرابة  </label>
                                             <input class="form-control" id="ex1" type="text" name="relative">
                                 
                                           </div> 
                               
-                                         <div style="margin-left:10px; "  class="col-xs-3 " >   
+                                         <div style="margin-left:18px; "  class="col-xs-3 col-xs-push-3" >   
                                             <label for="ex1">  الاسم  </label>
                                             <input class="form-control" id="ex1" type="text" name="RFirstname">
                                 
                                           </div>
                               
-                                         <div style="margin-left:10px; "  class="col-xs-4 "  >   
+                                         <div style="margin-left:12px; "  class="col-xs-4 col-xs-push-2 "  >   
                                             <label for="ex1">  الشخص  المسؤول  عن إحضار الطفل  </label>
                                             
                                 
@@ -323,12 +302,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                             
                                 
                                           </div> 
-                                          <div style="margin-right:15px; "  class="col-xs-3 " >   
+                                          <div style="margin-left:50px; "  class="col-xs-3 col-xs-pull-1 " >   
                                                         <label for="ex1">رقم الهوية</label>
                                                         <input class="form-control" id="ex1" type="text" name="id">
                                             
                                                       </div>
-                                                      <div style="margin-left:30px; "  class="col-xs-3 col-xs-pull-7" >
+                                                      <div style="margin-left:50px; "   class="col-xs-3 col-xs-pull-8" >
                                                   <label for="ex1">عمل الاب</label>
                                                   <input class="form-control" id="ex1" type="text" name="NameDadWork">
                                                   </div>
@@ -358,13 +337,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                             <input class="form-control" id="ex1" type="text" name="MomWorkPhone">
                                 
                                           </div>
-                                          <div style="margin-left:10px; "  class="col-xs-3 col-xs-push-3" >   
+                                          <div style="margin-left:20px; "  class="col-xs-3 col-xs-push-3" >   
                                             <label for="ex1">رقم الجوال   </label>
                                             <input class="form-control" id="ex1" type="text" name="MomPhone">
                                 
                                           </div> 
                                 
-                                       <div style="margin-left:20px; "  class="col-xs-3  col-xs-push-3" >   
+                                       <div style="margin-left:15px; "  class="col-xs-3  col-xs-push-3" >   
                                        <label for="ex1"> مكان عمل الام    </label>
                                             <input class="form-control" id="ex1" type="text" name="NameMomWork">
                                             
