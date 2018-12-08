@@ -36,28 +36,14 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n".
 return $conn;
 }
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $fname=$_POST["fname"];
-        $mname=$_POST["mname"];
-        $lname=$_POST["lname"];
-        $id=$_POST["id"];
-        $phoneNumber=$_POST["phoneNumber"];
-        $bdate=$_POST["bdate"];
-        $adress=$_POST["adress"];
         $conn = OpenCon();
-        //INSERT INTO `employee`(`fname`, `mname`, `lname`, `id`, `phoneNumber`, `bdate`, `adress`) VALUES ('asdas','asdas','asdas',123465,123465,'asdas','asdas')
         $result=$conn->prepare("INSERT INTO employee values(?, ?, ?,?, ?, ?,?)  ");
         $result->bind_param('sssiiss',
         $fname,$mname,$lname,$id,$phoneNumber,
         $bdate,$adress);
         $a=$result->execute();
         echo $a;
-      /* $n=("INSERT INTO employee values('asdas','asdas','asdas',123465,123465,'asdas','asdas');");
-        //echo $_POST.$_POST["fname"].$_POST["mname"].$_POST["lname"].$_POST["id"].$_POST["phoneNumber"].$_POST["bdate"].$_POST["adress"];
-        if ($conn->query($n) === TRUE) {
-                echo "New record created successfully";
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-            }*/
+     
 }       
 
 
@@ -132,7 +118,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                             <div style="margin-left:10px; "  class="col-xs-3 " >
                                             
                                             <label for="ex1">اسم الاب</label>
-                                            <input class="form-control" id="ex1" type="text" name="mname">
+                                            <input class="form-control" id="ex1" type="text" name="MidName>
                                             </div>
                                             <div style="margin-left:10px; "  class="col-xs-2 " >
                                                     <label for="ex1">اسم الطفل</label>
@@ -247,7 +233,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                           <div class="form-group row"  style="margin-left:100px;  text-align: right" >
                                            <div style="margin-left:10px; "  class="col-xs-3 " >
                                               <label for="ex1"> الاسم  </label>
-                                              <input class="form-control" id="ex1" type="text" name="RFirstname3">
+                                              <input class="form-control" id="ex1" type="text" name="RFname3">
                                           </div>
                               
                                            <div style="margin-left:10px; "  class="col-xs-2 " >
@@ -257,7 +243,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                               
                                            <div style="margin-left:10px; "  class="col-xs-3 " >
                                               <label for="ex1"> رقم الجوال  </label>
-                                              <input class="form-control" id="ex1" type="text" name="PhoneNumberR2">
+                                              <input class="form-control" id="ex1" type="text" name="PhoneNumberR3">
                                           </div>
                               
                                            <div style="margin-left:10px; "  class="col-xs-3 " >
@@ -299,39 +285,53 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                          
                                          
                                           
-                                           <div style="margin-left:14px; "  class="col-xs-3 col-xs-push-3" >
+                                           <div style="margin-left:30px; "  class="col-xs-3 col-xs-push-6" >
                                                 <label for="ex1">رقم هاتف المنزل</label>
                                                 <input class="form-control" id="ex1" type="text" name="HomeFamilyPhone">
                                             
                                     </div>
-                                   <div style="margin-left:10px; "  class="col-xs-3  col-xs-push-3" >
-                                        <label for="ex1">رقم الجوال</label>
-                                        <input class="form-control" id="ex1" type="text" name="HomeMobile" >
-                                      </div>
+                                   
                                 
                                   </div>
                                 
                                 
                                  
                                   <div class="form-group row"  style="margin-left:100px;  text-align: right" >
+                                  <div style="margin-left:10px; "  class="col-xs-3  " >   
+                                       <label for="ex1">  اسم الام  </label> 
+                                       
+                                            <input class="form-control" id="ex1" type="text" name="MomWorkPhone">
+                                
+                                          </div>
                                      <div style="margin-left:10px; "  class="col-xs-3 " >
                                           <label for="ex1">هاتف العمل</label>
                                           <input class="form-control" id="ex1" type="text" name="DadWorkPhone">
                                           </div>
+
+                                          
                                          <div style="margin-left:10px; "  class="col-xs-3 " >
                                               <label for="ex1">مكان عمل الاب</label>
                                               <input class="form-control" id="ex1" type="text" name="DadWork">
                                               </div>
-                                
-                                             <div style="margin-left:10px; "  class="col-xs-3 " >
-                                                  <label for="ex1">عمل الاب</label>
-                                                  <input class="form-control" id="ex1" type="text" name="NameDadWork">
-                                                  </div>
+                                              
+                                            
+
+                                                  
                                                   <div style="margin-left:30px; "  class="col-xs-3  col-xs-push-6" >   
                                             <label for="ex1">رقم الجوال   </label>
                                             <input class="form-control" id="ex1" type="text" name="DadPhone">
+                                            
                                 
                                           </div> 
+                                          <div style="margin-right:15px; "  class="col-xs-3 " >   
+                                                        <label for="ex1">رقم الهوية</label>
+                                                        <input class="form-control" id="ex1" type="text" name="id">
+                                            
+                                                      </div>
+                                                      <div style="margin-left:30px; "  class="col-xs-3 col-xs-pull-7" >
+                                                  <label for="ex1">عمل الاب</label>
+                                                  <input class="form-control" id="ex1" type="text" name="NameDadWork">
+                                                  </div>
                                   </div>
                                 
                                   
@@ -341,34 +341,40 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                        <div style="margin-left:10px; "  class="col-xs-3 " >  
                                        <label for="ex1">  عمل الام  </label> 
                                             
-                                            <input class="form-control" id="ex1" type="text" name="DadWorkPhone">
+                                            <input class="form-control" id="ex1" type="text" name="MomWork">
                                 
                                           </div>  
                                 
                                        <div style="margin-left:10px; "  class="col-xs-3 " >  
-                                       <label for="ex1">  اسم الام  </label> 
+                                       <label for="ex1"> هاتف عمل الام   </label>  
                                             
-                                            <input class="form-control" id="ex1" type="text" name="placeWork">
+                                            <input class="form-control" id="ex1" type="text" name="MotherName">
                                 
                                           </div> 
                                 
                                        <div style="margin-left:10px; "  class="col-xs-3  " >   
-                                       <label for="ex1"> هاتف العمل   </label>
-                                            <input class="form-control" id="ex1" type="text" name="MomWork">
+                                       <label for="ex1">  اسم الام  </label> 
+                                       
+                                            <input class="form-control" id="ex1" type="text" name="MomWorkPhone">
                                 
                                           </div>
                                           <div style="margin-left:10px; "  class="col-xs-3 col-xs-push-3" >   
                                             <label for="ex1">رقم الجوال   </label>
-                                            <input class="form-control" id="ex1" type="text" name="DadPhone">
+                                            <input class="form-control" id="ex1" type="text" name="MomPhone">
                                 
                                           </div> 
                                 
                                        <div style="margin-left:20px; "  class="col-xs-3  col-xs-push-3" >   
                                        <label for="ex1"> مكان عمل الام    </label>
-                                            <input class="form-control" id="ex1" type="text" name="motherName">
+                                            <input class="form-control" id="ex1" type="text" name="NameMomWork">
                                             
                                 
                                           </div>
+                                          <div style="margin-left:40px; "  class="col-xs-3  col-xs-pull-7" >   
+                                                        <label for="ex1">رقم الهوية</label>
+                                                        <input class="form-control" id="ex1" type="text" name="id">
+                                            
+                                                      </div>
                                       
                                       </div>
                                 
@@ -390,7 +396,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                     
                                               </div>
                                 
-                                         <div style="margin-left:10px; "  class="col-xs-3 " >   
+                                         <div style="margin-left:30px; "  class="col-xs-3 col-xs-push-6 " >   
                                               <label for="ex1">  عدد الاخوة والاخوات لطفل  </label>
                                               <input class="form-control" id="ex1" type="text" name="numberOfsisAndBrother">
                                               
@@ -401,26 +407,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                             
                                        </div> 
                                 
-                                       <div class="form-group row"  style="margin-left:100px;  text-align: right" >
-                                         <div style="margin-left:10px; "  class="col-xs-3 " >
-                                              <label for="ex1"> الاسم  </label>
-                                              <input class="form-control" id="ex1" type="text">
-                                          </div>
-                                
-                                         <div style="margin-left:10px; "  class="col-xs-3 " >
-                                              <label for="ex1">  صلة القرابة  </label>
-                                              <input class="form-control" id="ex1" type="text">
-                                          </div>
-                                
-                                         <div style="margin-left:10px; "  class="col-xs-3 " >
-                                              <label for="ex1"> رقم الجوال  </label>
-                                              <input class="form-control" id="ex1" type="text">
-                                          </div>
-                                
-                                         <div style="margin-left:10px; "  class="col-xs-3 " >
-                                              <label for="ex1">  في حالة الطوارئ يمكن الاتصال   </label>
-                                          </div>
-                                          </div> 
+                                       
                                           
                                           <div class="form-group row"  style="margin-left:100px;  text-align: right" >
                                                 <div style="margin-left:10px; "  class="col-xs-3  col-xs-push-6" >
